@@ -1,0 +1,21 @@
+输入这个进入容器
+ 退出则是exit
+ kang@kang:~$ xhost +local:docker
+non-network local connections being added to access control list
+kang@kang:~$ sudo docker start my_noetic
+my_noetic
+kang@kang:~$ sudo docker exec -it my_noetic bash
+
+
+> 容器名：`rm_task`  
+> 容器内工作区：`/root/chassis_ws`  
+> 宿主机工作区：`/home/kang/chassis_ws`  
+> ROS：Noetic  
+
+## 0. 进入 Docker 容器
+
+在 Ubuntu 主机终端执行：
+
+```
+sudo docker exec -it rm_task bash
+```

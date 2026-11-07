@@ -1,0 +1,102 @@
+终端常用指令
+
+上下键可以翻阅历史命令
+
+sudo—————临时获取最高权限，安装软件，改系统文件
+sudo apt类
+sudo apt install 软件名（安装软件）
+sudo apt remove 软件名（卸载软件）
+
+查看类
+1.关于系统
+pwd——————直接查看当前位置
+
+stat -f——查看本机块大小
+
+df -h————查看磁盘剩余空间
+
+tree—————以树形展示文件夹结构
+
+htop—————查看电脑进程
+
+top——————查看占用cpu内存
+按q退出（可用于排查机器人程序卡死，cpu占用过高，后台进程排查必备）
+
+whoami——查看当前登录用户名
+kang@kang:~/rm_preview$ whoami
+kang
+
+uname -a查看当前系统内核版本
+kang@kang:~/rm_preview$ uname -a
+Linux kang 7.0.0-38-generic #38-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep  4 09:10:14 UTC 2026 x86_64 GNU/Linux
+
+
+2.查看文件
+cat——————一次性查看整个文件(要加文件名，不加会读取并打印你的输入）
+（Ctrl+D结束输入）（Ctrl+c强制终止）
+
+bat——————交互式查看文件，对语法有高亮
+
+head/tail——看开头、看结尾
+tail ~ n 10 ~/.bash_history>>"要写入的文件"读取最后十行写入
+
+
+ls———————查看当前文件夹里的文件
+ls -l————查看详细信息（权限、大小、修改时间)
+ls -al———显示所有文件（含隐藏文件。Linux中以.开头的是隐藏文件）
+
+例：
+kang@kang:~/rm_preview$ ls -l
+total 8（代表所有文件占用的磁盘块总和即总共占用4kb磁盘）
+-rw-rw-r-- 1 kang kang    0 Oct 16 12:58 log.txt
+drwxrwxr-x 2 kang kang 4096 Oct 16 13:03 test_folder
+drwxrwxr-x 2 kang kang 4096 Oct 16 20:02 终端指令
+
+kang@kang:~/rm_preview$ ls -al
+total 16
+drwxrwxr-x  4 kang kang 4096 Oct 16 13:16 .
+drwxr-x--- 17 kang kang 4096 Oct 16 13:15 ..
+-rw-rw-r--  1 kang kang    0 Oct 16 12:58 log.txt
+drwxrwxr-x  2 kang kang 4096 Oct 16 13:03 test_folder
+drwxrwxr-x  2 kang kang 4096 Oct 16 20:02 终端指令
+
+
+创建类
+mkdir/mkdir -p
+kang@kang:~$ mkdir rm_preview（mkdir是创建空文件夹）
+
+touch
+kang@kang:~/rm_preview$ touch log.txt（touch是创建空文件，没办法cd进入）
+kang@kang:~/rm_preview$ touch note.md
+
+cp
+kang@kang:~/rm_preview$ cp log.txt log_backup.txt（制作log.txt的副本）
+
+
+索引类
+cd
+kang@kang:~$ cd rm_preview（cd是去哪里）
+（如cd ~是去家目录，注意～和~的区别。cd ..是退一级）
+
+
+修改移动类
+mv
+kang@kang:~/rm_preview$ mv note.md readme.md（重命名note.md为read.md)
+kang@kang:~/rm_preview$ mv readme.md test_folder（移动到test_folder)
+
+
+删除类
+rm
+kang@kang:~/rm_preview$ rm iog_backup.txt(删除空文件）
+rm后面接多个文件名，会同时删除
+rm -i（建议使用）（删除前会询问，避免误删）
+rm -I(多个文件才提示，少量不提示）
+rm -f(强制删除）
+
+rmdir
+kang@kang:~/rm_preview$ rmdir test_folder(删除空文件夹）
+
+
+
+
+
